@@ -1,0 +1,98 @@
+.wrap {
+  padding: 12px;
+  height: 100%;
+  overflow-y: auto;
+  background: var(--win-bg);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(to right, #0055e0, #3a93ff);
+  padding: 12px;
+  border-radius: 4px;
+  color: #fff;
+  border: 1px solid #0033a0;
+  margin-bottom: 8px;
+}
+
+.snorlaxImg {
+  font-size: 36px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.bannerText h3 {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.bannerText p {
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.row label {
+  width: 100px;
+  font-weight: bold;
+  color: #333;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+  padding-top: 12px;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 24px 12px;
+}
+
+.successIcon {
+  font-size: 60px;
+  margin-bottom: 12px;
+}
+
+.success h2 {
+  font-size: 18px;
+  color: var(--xp-green1);
+  margin-bottom: 8px;
+}
+
+.success p {
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.emailCode {
+  background: #fff;
+  border: 1px solid #bbb;
+  padding: 4px 12px;
+  font-family: monospace;
+  font-size: 12px;
+  border-radius: 4px;
+  user-select: all;
+  cursor: pointer;
+}

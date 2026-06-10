@@ -1,0 +1,35 @@
+/* ─────────────────────────────────────────────
+   ScreenSaver — Starfield
+   ───────────────────────────────────────────── */
+
+.wrap {
+  position: fixed;
+  inset: 0;
+  background: #000008;
+  z-index: 99999;
+  cursor: none;
+  overflow: hidden;
+  user-select: none;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.info {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: rgba(180, 200, 255, 0.35);
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  pointer-events: none;
+}

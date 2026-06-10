@@ -1,0 +1,105 @@
+.wrap {
+  background: var(--win-bg);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: var(--font-ui);
+  padding: 4px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--xp-silver2);
+  padding: 6px;
+  border-bottom: 1px solid #aaa;
+}
+
+.toolGroup {
+  display: flex;
+  gap: 4px;
+}
+
+.toolBtn {
+  font-size: 14px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background: #eee;
+  border: 1px solid #808080;
+  box-shadow: var(--bevel-out);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toolBtn:active {
+  box-shadow: var(--bevel-in);
+}
+
+.active {
+  background: #ddd;
+  box-shadow: var(--bevel-in);
+  border-color: #555;
+}
+
+.sizeGroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.workspace {
+  flex: 1;
+  background: #7F7F7F; /* standard retro paint dark grey bg behind sheet */
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.canvas {
+  background: #fff;
+  border: 2px solid #000;
+  cursor: crosshair;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.colorPalette {
+  background: var(--xp-silver2);
+  border-top: 1px solid #aaa;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.activeColorBox {
+  width: 28px;
+  height: 28px;
+  border: 2px inset #fff;
+  box-shadow: var(--bevel-in);
+}
+
+.colorsGrid {
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  gap: 3px;
+  flex: 1;
+}
+
+.colorSwatch {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #808080;
+  cursor: pointer;
+}
+
+.selectedSwatch {
+  border: 2px solid #000;
+  transform: scale(1.1);
+}

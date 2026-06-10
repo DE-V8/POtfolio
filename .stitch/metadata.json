@@ -1,0 +1,16 @@
+{
+  "projectId": "12180567952535499219",
+  "title": "XP Portfolio - Windows XP x Snorlax",
+  "designSystemId": "assets/24842eb6f6d649d583b39e85d8a67140",
+  "designSystemName": "Luna Silver Legacy",
+  "screens": {
+    "index": {
+      "id": "d21120392e924183911e7cfca3866cfd",
+      "sourceScreen": "projects/12180567952535499219/screens/d21120392e924183911e7cfca3866cfd",
+      "width": 2560,
+      "height": 2048
+    }
+  },
+  "wallpaperUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuAaKYYodda17rfnFG8zRNkr2NQDeAhDDFPyHQ9dgJK7DBLP-upV0octQ14H3s5zwmglsI_YuALi84tBbJkU_i57Vvys1pps_mOZnDVM7BL5h_Jl-5qi2C5A7n_vhjdstQ5AhptWQjUuIE9f7EkLHqDLJzusK3wxaLUVy7NQyNVEDsj3Bvas5SIlTEbHjxGLIU7ghcR0ynHVW0daYW7MFl1uptXQzu4pdHWcauzx8rIelR6Gg3nlpBmXJRhAIGh7X0esZnpFQ6qYnhh1",
+  "startLogoUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuBw3rHOns7jSUSmNbLcc-IqCHx4bPxPlUa_mnVAIr_dnMRUsuZQuohuoNVNvO8a6_Ke8eisd9SdORWmmK_6lF4yhrIZWrmFmKeJlMcttZBM3g9naPyQZQ1IOaV8AjYwrpZC5luLRPY8W7VRmHOHEWFLs0JedSloWabSNOwpCaT7gjM08dCNOKpRo_zrKamnWE2lp_UIls4sB1YRe6ycYC8sBKNQY7vcN0Jr84BZEpGcbUH0wv5u6q1pq9gVrOQgXOA67GxUkFDzcnbU"
+}

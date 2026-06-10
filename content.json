@@ -1,0 +1,86 @@
+{
+  "_readme": "Edit this file to update your portfolio. Add new items to any section and refresh the browser!",
+  "owner": {
+    "name": "Your Name",
+    "tagline": "Creative Developer & Digital Artist",
+    "bio": "I create at the intersection of code, design, and imagination. Photoshop wizard by night, developer by day, 3D dreamer always.",
+    "avatar": "assets/images/avatar.jpg",
+    "email": "you@example.com",
+    "socials": {
+      "instagram": "https://instagram.com/yourhandle",
+      "twitter": "https://twitter.com/yourhandle",
+      "github": "https://github.com/yourhandle",
+      "linkedin": "https://linkedin.com/in/yourhandle"
+    }
+  },
+  "latestWork": [
+    {
+      "id": "latest-001",
+      "title": "Sample Project",
+      "description": "Add your first project here. Replace this with your actual work!",
+      "image": "assets/images/work/placeholder.jpg",
+      "category": "photoshop",
+      "tags": ["Photoshop", "Design"],
+      "date": "2026-06",
+      "featured": true
+    }
+  ],
+  "works": {
+    "photoshop": [
+      {
+        "id": "ps-001",
+        "title": "My Photoshop Work",
+        "description": "Replace with your actual Photoshop project description",
+        "image": "assets/images/gallery/placeholder.jpg",
+        "date": "2026-06"
+      }
+    ],
+    "video": [
+      {
+        "id": "vid-001",
+        "title": "My Video Project",
+        "description": "Replace with your actual video project",
+        "image": "assets/images/gallery/placeholder.jpg",
+        "link": "https://youtube.com/",
+        "date": "2026-06"
+      }
+    ],
+    "3d": [
+      {
+        "id": "3d-001",
+        "title": "My 3D Art",
+        "description": "Replace with your actual 3D project",
+        "image": "assets/images/gallery/placeholder.jpg",
+        "date": "2026-06"
+      }
+    ],
+    "uiux": [
+      {
+        "id": "ui-001",
+        "title": "My UI/UX Project",
+        "description": "Replace with your actual UI/UX project",
+        "image": "assets/images/gallery/placeholder.jpg",
+        "date": "2026-06"
+      }
+    ],
+    "dev": [
+      {
+        "id": "dev-001",
+        "title": "My Dev Project",
+        "description": "Replace with your actual coding project",
+        "image": "assets/images/gallery/placeholder.jpg",
+        "link": "https://github.com/",
+        "date": "2026-06"
+      }
+    ],
+    "illustrations": [
+      {
+        "id": "ill-001",
+        "title": "My Illustration",
+        "description": "Replace with your actual illustration",
+        "image": "assets/images/gallery/placeholder.jpg",
+        "date": "2026-06"
+      }
+    ]
+  }
+}

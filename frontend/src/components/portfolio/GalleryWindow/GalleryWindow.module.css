@@ -1,0 +1,37 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff; /* standard XP folder view has white bg */
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  background: var(--xp-silver2);
+  border-bottom: 1px solid #c0c0c0;
+  font-family: var(--font-ui);
+}
+
+.header h3 {
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+}
+
+.count {
+  font-size: 11px;
+  color: #666;
+}
+
+.grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  overflow-y: auto;
+}

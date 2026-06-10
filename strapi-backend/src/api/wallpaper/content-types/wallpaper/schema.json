@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wallpapers",
+  "info": {
+    "singularName": "wallpaper",
+    "pluralName": "wallpapers",
+    "displayName": "Wallpaper",
+    "description": "Preset desktop wallpapers"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "isDark": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

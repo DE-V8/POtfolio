@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Personal portfolio website — Creative Developer & Digital Artist. Photoshop, 3D Art, UI/UX, Dev Projects, Video Editing, Illustrations."/>
+  <title>Portfolio — Snorlax OS</title>
+  <link rel="icon" href="assets/images/favicon.png" type="image/png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════ BOOT SCREEN ═══════ -->
+<div id="boot-screen">
+  <div class="boot-inner">
+    <div class="boot-logo">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw3rHOns7jSUSmNbLcc-IqCHx4bPxPlUa_mnVAIr_dnMRUsuZQuohuoNVNvO8a6_Ke8eisd9SdORWmmK_6lF4yhrIZWrmFmKeJlMcttZBM3g9naPyQZQ1IOaV8AjYwrpZC5luLRPY8W7VRmHOHEWFLs0JedSloWabSNOwpCaT7gjM08dCNOKpRo_zrKamnWE2lp_UIls4sB1YRe6ycYC8sBKNQY7vcN0Jr84BZEpGcbUH0wv5u6q1pq9gVrOQgXOA67GxUkFDzcnbU" alt="Snorlax" class="boot-snorlax"/>
+      <div class="boot-title-wrap">
+        <div class="boot-tagline" id="boot-name">Portfolio OS</div>
+        <div class="boot-sub">Loading your creative universe...</div>
+      </div>
+    </div>
+    <div class="boot-progress-bar"><div class="boot-progress-fill" id="boot-fill"></div></div>
+    <div class="boot-status" id="boot-status">Starting up...</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ DESKTOP ═══════════ -->
+<div id="desktop">
+
+  <!-- Desktop wallpaper (set via CSS / JS) -->
+  <div id="desktop-bg"></div>
+
+  <!-- Desktop Icons -->
+  <div id="desktop-icons">
+    <div class="d-icon" data-window="photoshop" ondblclick="openWindow('photoshop')" tabindex="0">
+      <span class="d-icon-img">🎨</span>
+      <span class="d-icon-label">Photoshop Works</span>
+    </div>
+    <div class="d-icon" data-window="video" ondblclick="openWindow('video')" tabindex="0">
+      <span class="d-icon-img">🎬</span>
+      <span class="d-icon-label">Video Editing</span>
+    </div>
+    <div class="d-icon" data-window="3d" ondblclick="openWindow('3d')" tabindex="0">
+      <span class="d-icon-img">🧊</span>
+      <span class="d-icon-label">3D Art</span>
+    </div>
+    <div class="d-icon" data-window="uiux" ondblclick="openWindow('uiux')" tabindex="0">
+      <span class="d-icon-img">✏️</span>
+      <span class="d-icon-label">UI/UX Design</span>
+    </div>
+    <div class="d-icon" data-window="dev" ondblclick="openWindow('dev')" tabindex="0">
+      <span class="d-icon-img">💻</span>
+      <span class="d-icon-label">Dev Projects</span>
+    </div>
+    <div class="d-icon" data-window="illustrations" ondblclick="openWindow('illustrations')" tabindex="0">
+      <span class="d-icon-img">🖊️</span>
+      <span class="d-icon-label">Illustrations</span>
+    </div>
+    <div class="d-icon" data-window="about" ondblclick="openWindow('about')" tabindex="0">
+      <span class="d-icon-img">👤</span>
+      <span class="d-icon-label">About Me</span>
+    </div>
+    <div class="d-icon" data-window="latest" ondblclick="openWindow('latest')" tabindex="0">
+      <span class="d-icon-img">⭐</span>
+      <span class="d-icon-label">Latest Work</span>
+    </div>
+    <div class="d-icon" data-window="contact" ondblclick="openWindow('contact')" tabindex="0">
+      <span class="d-icon-img">✉️</span>
+      <span class="d-icon-label">Contact</span>
+    </div>
+  </div>
+
+  <!-- ═══ WINDOWS ═══════════════════════════════════════════════════════ -->
+
+  <!-- ABOUT WINDOW -->
+  <div class="xp-window" id="win-about" style="left:200px;top:60px;width:480px;display:none;">
+    <div class="win-titlebar" data-win="win-about">
+      <div class="win-titlebar-left">
+        <span class="win-icon">👤</span>
+        <span class="win-title">About Me</span>
+      </div>
+      <div class="win-chrome">
+        <button class="chrome-btn minimize-btn" onclick="minimizeWindow('win-about')">_</button>
+        <button class="chrome-btn maximize-btn" onclick="maximizeWindow('win-about')">□</button>
+        <button class="chrome-btn close-btn" onclick="closeWindow('win-about')">✕</button>
+      </div>
+    </div>
+    <div class="win-menubar"><span>File</span><span>Edit</span><span>View</span><span>Help</span></div>
+    <div class="win-content" id="about-content">
+      <div class="about-layout">
+        <div class="about-avatar-wrap">
+          <img src="assets/images/avatar.jpg" alt="Avatar" class="about-avatar" onerror="this.src='https://api.dicebear.com/7.x/pixel-art/svg?seed=snorlax'"/>
+          <div class="about-name" id="about-name">Your Name</div>
+          <div class="about-tagline" id="about-tagline">Creative Developer & Digital Artist</div>
+          <div class="about-socials" id="about-socials"></div>
+        </div>
+        <div class="about-details">
+          <p class="about-bio" id="about-bio">Loading...</p>
+          <div class="skills-section">
+            <div class="skill-row"><span class="skill-label">Photoshop</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+            <div class="skill-row"><span class="skill-label">UI/UX</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+            <div class="skill-row"><span class="skill-label">3D Art</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+            <div class="skill-row"><span class="skill-label">Video Edit</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+            <div class="skill-row"><span class="skill-label">Development</span><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+            <div class="skill-row"><span class="skill-label">Illustration</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LATEST WORK WINDOW -->
+  <div class="xp-window" id="win-latest" style="left:160px;top:80px;width:620px;height:440px;display:none;">
+    <div class="win-titlebar" data-win="win-latest">
+      <div class="win-titlebar-left">
+        <span class="win-icon">⭐</span>
+        <span class="win-title">Latest Work</span>
+      </div>
+      <div class="win-chrome">
+        <button class="chrome-btn minimize-btn" onclick="minimizeWindow('win-latest')">_</button>
+        <button class="chrome-btn maximize-btn" onclick="maximizeWindow('win-latest')">□</button>
+        <button class="chrome-btn close-btn" onclick="closeWindow('win-latest')">✕</button>
+      </div>
+    </div>
+    <div class="win-menubar"><span>File</span><span>View</span><span>Sort by ▾</span></div>
+    <div class="win-toolbar">
+      <button class="tool-btn active" onclick="filterLatest('all', this)">All</button>
+      <button class="tool-btn" onclick="filterLatest('photoshop', this)">Photoshop</button>
+      <button class="tool-btn" onclick="filterLatest('video', this)">Video</button>
+      <button class="tool-btn" onclick="filterLatest('3d', this)">3D</button>
+      <button class="tool-btn" onclick="filterLatest('uiux', this)">UI/UX</button>
+      <button class="tool-btn" onclick="filterLatest('dev', this)">Dev</button>
+      <button class="tool-btn" onclick="filterLatest('illustrations', this)">Illustrations</button>
+    </div>
+    <div class="win-content scrollable" id="latest-grid"></div>
+  </div>
+
+  <!-- DISCIPLINE WINDOWS (one per category, reused template) -->
+  <div class="xp-window disc-window" id="win-photoshop" style="left:120px;top:70px;width:580px;height:420px;display:none;">
+    <div class="win-titlebar" data-win="win-photoshop">
+      <div class="win-titlebar-left"><span class="win-icon">🎨</span><span class="win-title">Photoshop Works</span></div>
+      <div class="win-chrome">
+        <button class="chrome-btn minimize-btn" onclick="minimizeWindow('win-photoshop')">_</button>
+        <button class="chrome-btn maximize-btn" onclick="maximizeWindow('win-photoshop')">□</button>
+        <button class="chrome-btn close-btn" onclick="closeWindow('win-photoshop')">✕</button>
+      </div>
+    </div>
+    <div class="win-menubar"><span>File</span><span>View</span><span>Slideshow</span></div>
+    <div class="win-content scrollable" id="grid-photoshop"></div>
+  </div>
+
+  <div class="xp-window disc-window" id="win-video" style="left:140px;top:75px;width:580px;height:420px;display:none;">
+    <div class="win-titlebar" data-win="win-video">
+      <div class="win-titlebar-left"><span class="win-icon">🎬</span><span class="win-title">Video Editing</span></div>
+      <div class="win-chrome">
+        <button class="chrome-btn minimize-btn" onclick="minimizeWindow('win-video')">_</button>
+        <button class="chrome-btn maximize-btn" onclick="maximizeWindow('win-video')">□</button>
+        <button class="chrome-btn close-btn" onclick="closeWindow('win-video')">✕</button>
+      </div>
+    </div>
+    <div class="win-menubar"><span>File</span><span>View</span><span>Playlist</span></div>
+    <div class="win-content scrollable" id="grid-video"></div>
+  </div>
+
+  <div class="xp-window disc-window" id="win-3d" style="left:160px;top:80px;width:580px;height:420px;display:none;">
+    <div class="win-titlebar" data-win="win-3d">
+      <div class="win-titlebar-left"><span class="win-icon">🧊</span><span class="win-title">3D Art</span></div>
+      <div class="win-chrome">
+        <button class="chrome-btn minimize-btn" onclick="minimizeWindow('win-3d')">_</button>
+        <button class="chrome-btn maximize-btn" onclick="maximizeWindow('win-3d')">□</button>
+        <button class="chrome-btn close-btn" onclick="closeWindow('win-3d')">✕</button>
+      </div>
+    </div>
+    <div class="win-menubar"><span>File</span><span>View</span><span>Render Info</span></div>
+    <div class="win-content scrollable" id="grid-3d"></div>
+  </div>
+
+  <div class="xp-window disc-window" id="win-uiux" style="left:180px;top:85px;width:580px;height:420px;display:none;">
+    <div class="win-titlebar" data-win="win-uiux">
+      <div class="win-titlebar-left"><span class="win-icon">✏️</span><span class="win-title">UI/UX Design</span></div>
+      <div class="win-chrome">
+        <button class="chrome-btn minimize-btn" onclick="minimizeWindow('win-uiux')">_</button>
+        <button class="chrome-btn maximize-btn" onclick="maximizeWindow('win-uiux')">□</button>
+        <button class="chrome-btn close-btn" onclick="closeWindow('win-uiux')">✕</button>
+      </div>
+    </div>
+    <div class="win-menubar"><span>File</span><span>View</span><span>Prototype</span></div>
+    <div class="win-content scrollable" id="grid-uiux"></div>
+  </div>
+
+  <div class="xp-window disc-window" id="win-dev" style="left:200px;top:90px;width:580px;height:420px;display:none;">
+    <div class="win-titlebar" data-win="win-dev">
+      <div class="win-titlebar-left"><span class="win-icon">💻</span><span class="win-title">Dev Projects</span></div>
+      <div class="win-chrome">
+        <button class="chrome-btn minimize-btn" onclick="minimizeWindow('win-dev')">_</button>
+        <button class="chrome-btn maximize-btn" onclick="maximizeWindow('win-dev')">□</button>
+        <button class="chrome-btn close-btn" onclick="closeWindow('win-dev')">✕</button>
+      </div>
+    </div>
+    <div class="win-menubar"><span>File</span><span>View</span><span>README</span></div>
+    <div class="win-content scrollable" id="grid-dev"></div>
+  </div>
+
+  <div class="xp-window disc-window" id="win-illustrations" style="left:220px;top:95px;width:580px;height:420px;display:none;">
+    <div class="win-titlebar" data-win="win-illustrations">
+      <div class="win-titlebar-left"><span class="win-icon">🖊️</span><span class="win-title">Illustrations</span></div>
+      <div class="win-chrome">
+        <button class="chrome-btn minimize-btn" onclick="minimizeWindow('win-illustrations')">_</button>
+        <button class="chrome-btn maximize-btn" onclick="maximizeWindow('win-illustrations')">□</button>
+        <button class="chrome-btn close-btn" onclick="closeWindow('win-illustrations')">✕</button>
+      </div>
+    </div>
+    <div class="win-menubar"><span>File</span><span>View</span><span>Export</span></div>
+    <div class="win-content scrollable" id="grid-illustrations"></div>
+  </div>
+
+  <!-- CONTACT WINDOW -->
+  <div class="xp-window" id="win-contact" style="left:300px;top:120px;width:380px;display:none;">
+    <div class="win-titlebar" data-win="win-contact">
+      <div class="win-titlebar-left"><span class="win-icon">✉️</span><span class="win-title">Send Message</span></div>
+      <div class="win-chrome">
+        <button class="chrome-btn minimize-btn" onclick="minimizeWindow('win-contact')">_</button>
+        <button class="chrome-btn maximize-btn" onclick="maximizeWindow('win-contact')">□</button>
+        <button class="chrome-btn close-btn" onclick="closeWindow('win-contact')">✕</button>
+      </div>
+    </div>
+    <div class="win-content contact-content">
+      <div class="dialog-icon">✉️</div>
+      <p class="dialog-text">Send me a message! I'll get back to you faster than Snorlax wakes up (maybe).</p>
+      <div class="field-row">
+        <label for="c-name">Name:</label>
+        <input type="text" id="c-name" class="xp-input" placeholder="Your name"/>
+      </div>
+      <div class="field-row">
+        <label for="c-email">Email:</label>
+        <input type="email" id="c-email" class="xp-input" placeholder="your@email.com"/>
+      </div>
+      <div class="field-row field-col">
+        <label for="c-msg">Message:</label>
+        <textarea id="c-msg" class="xp-input" rows="4" placeholder="Type your message here..."></textarea>
+      </div>
+      <div class="dialog-buttons">
+        <button class="xp-btn xp-btn-primary" onclick="sendContact()">OK</button>
+        <button class="xp-btn" onclick="closeWindow('win-contact')">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <div id="lightbox-inner" onclick="event.stopPropagation()">
+      <button class="lb-nav lb-prev" onclick="lbNav(-1)">‹</button>
+      <img id="lb-img" src="" alt=""/>
+      <button class="lb-nav lb-next" onclick="lbNav(1)">›</button>
+      <div id="lb-title"></div>
+      <button class="lb-close" onclick="closeLightbox()">✕</button>
+    </div>
+  </div>
+
+  <!-- START MENU -->
+  <div id="start-menu">
+    <div class="sm-header">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw3rHOns7jSUSmNbLcc-IqCHx4bPxPlUa_mnVAIr_dnMRUsuZQuohuoNVNvO8a6_Ke8eisd9SdORWmmK_6lF4yhrIZWrmFmKeJlMcttZBM3g9naPyQZQ1IOaV8AjYwrpZC5luLRPY8W7VRmHOHEWFLs0JedSloWabSNOwpCaT7gjM08dCNOKpRo_zrKamnWE2lp_UIls4sB1YRe6ycYC8sBKNQY7vcN0Jr84BZEpGcbUH0wv5u6q1pq9gVrOQgXOA67GxUkFDzcnbU" alt="Snorlax" class="sm-avatar"/>
+      <div>
+        <div class="sm-username" id="sm-username">Portfolio</div>
+        <div class="sm-subtitle">Creative OS</div>
+      </div>
+    </div>
+    <div class="sm-body">
+      <div class="sm-col sm-left">
+        <div class="sm-item" onclick="openWindow('photoshop');closeStartMenu()">🎨 Photoshop Works</div>
+        <div class="sm-item" onclick="openWindow('video');closeStartMenu()">🎬 Video Editing</div>
+        <div class="sm-item" onclick="openWindow('3d');closeStartMenu()">🧊 3D Art</div>
+        <div class="sm-item" onclick="openWindow('uiux');closeStartMenu()">✏️ UI/UX Design</div>
+        <div class="sm-item" onclick="openWindow('dev');closeStartMenu()">💻 Dev Projects</div>
+        <div class="sm-item" onclick="openWindow('illustrations');closeStartMenu()">🖊️ Illustrations</div>
+        <div class="sm-divider"></div>
+        <div class="sm-item" onclick="openWindow('latest');closeStartMenu()">⭐ Latest Work</div>
+      </div>
+      <div class="sm-col sm-right">
+        <div class="sm-item" onclick="openWindow('about');closeStartMenu()">👤 About Me</div>
+        <div class="sm-item" onclick="openWindow('contact');closeStartMenu()">✉️ Contact</div>
+        <div class="sm-divider"></div>
+        <div class="sm-item sm-social" id="sm-socials"></div>
+      </div>
+    </div>
+    <div class="sm-footer">
+      <button class="sm-shutdown" onclick="closeStartMenu()">💤 Shut Down</button>
+    </div>
+  </div>
+
+  <!-- TASKBAR -->
+  <div id="taskbar">
+    <button id="start-btn" onclick="toggleStartMenu()">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw3rHOns7jSUSmNbLcc-IqCHx4bPxPlUa_mnVAIr_dnMRUsuZQuohuoNVNvO8a6_Ke8eisd9SdORWmmK_6lF4yhrIZWrmFmKeJlMcttZBM3g9naPyQZQ1IOaV8AjYwrpZC5luLRPY8W7VRmHOHEWFLs0JedSloWabSNOwpCaT7gjM08dCNOKpRo_zrKamnWE2lp_UIls4sB1YRe6ycYC8sBKNQY7vcN0Jr84BZEpGcbUH0wv5u6q1pq9gVrOQgXOA67GxUkFDzcnbU" alt="Start"/>
+      <span>Start</span>
+    </button>
+    <div id="taskbar-windows"></div>
+    <div id="system-tray">
+      <div id="tray-socials"></div>
+      <div class="tray-sep"></div>
+      <div id="clock">12:00 PM</div>
+    </div>
+  </div>
+
+</div><!-- /desktop -->
+
+<script src="assets/js/windows.js"></script>
+<script src="assets/js/loader.js"></script>
+</body>
+</html>

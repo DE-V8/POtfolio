@@ -1,0 +1,39 @@
+# Dependency directories
+node_modules/
+**/node_modules/
+
+# Local env files
+.env
+**/.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+**/.env.*
+
+# Build outputs
+dist/
+**/dist/
+build/
+**/build/
+.strapi/
+**/.strapi/
+
+# Database files
+.tmp/
+**/.tmp/
+*.db
+*.sqlite
+*.sqlite3
+
+# Uploaded media files (so we don't commit them, we want them stored dynamically or populated separately)
+**/public/uploads/*
+!**/public/uploads/.gitkeep
+
+# IDEs
+.idea/
+.vscode/
+
+# OS metadata
+.DS_Store
+Thumbs.db

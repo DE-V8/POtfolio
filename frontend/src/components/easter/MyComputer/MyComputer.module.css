@@ -1,0 +1,82 @@
+.wrap {
+  background: #fff;
+  height: 100%;
+  padding: 16px;
+  overflow-y: auto;
+  font-family: var(--font-ui);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category h4 {
+  font-size: 12px;
+  font-weight: bold;
+  color: #0A246A;
+  border-bottom: 1px solid #c0c0c0;
+  padding-bottom: 4px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.drive {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+.drive:hover {
+  background: #e5f3ff;
+  border-color: #cce8ff;
+}
+
+.driveIcon {
+  font-size: 32px;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+}
+
+.driveInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.driveLabel {
+  font-weight: bold;
+  font-size: 11px;
+  color: #000;
+}
+
+.barWrap {
+  width: 100%;
+  height: 8px;
+  background: #eee;
+  border: 1px solid #ccc;
+  margin: 3px 0;
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: linear-gradient(to bottom, #729fcf, #3465a4);
+}
+
+.driveStats {
+  font-size: 10px;
+  color: #666;
+}
