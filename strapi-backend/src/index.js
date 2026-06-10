@@ -32,6 +32,22 @@ module.exports = {
             }
           }
         }
+
+        // Grant find, findOne, and create permissions for Guestbook
+        const guestbookActions = ['find', 'findOne', 'create'];
+        for (const action of guestbookActions) {
+          const actionString = `api::guestbook.guestbook.${action}`;
+          const existing = publicRole.permissions.find(p => p.action === actionString);
+          if (!existing) {
+            await strapi.query('plugin::users-permissions.permission').create({
+              data: {
+                action: actionString,
+                role: publicRole.id,
+              },
+            });
+            console.log(`Granted public permission for ${actionString}`);
+          }
+        }
       }
     } catch (err) {
       console.error('Error bootstrapping public permissions:', err);
@@ -191,6 +207,22 @@ module.exports = {
           await strapi.documents('api::link.link').create({
             data: link,
             status: 'published'
+          });
+        }
+      }
+
+      // Seed Guestbook Entries
+      const existingGuestbooksCount = await strapi.query('api::guestbook.guestbook').count();
+      if (existingGuestbooksCount === 0) {
+        console.log('Seeding default guestbook entries...');
+        const guestbooksData = [
+          { name: 'Ash Ketchum', msg: 'Snorlax, wake up! We need to train!', date: '2026-06-01', color: '#ffeb3b' },
+          { name: 'Misty', msg: 'Love the desktop layout. Snorlax theme is so cute! 🌊', date: '2026-06-03', color: '#ff9800' },
+          { name: 'Professor Oak', msg: 'Fascinating! A portfolio operating system. Keep up the scientific coding work!', date: '2026-06-05', color: '#e91e63' }
+        ];
+        for (const entry of guestbooksData) {
+          await strapi.documents('api::guestbook.guestbook').create({
+            data: entry
           });
         }
       }

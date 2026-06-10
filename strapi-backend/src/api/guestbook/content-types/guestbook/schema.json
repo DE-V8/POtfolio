@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "guestbooks",
+  "info": {
+    "singularName": "guestbook",
+    "pluralName": "guestbooks",
+    "displayName": "Guestbook",
+    "description": "Guestbook signatures posted by website visitors"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "msg": {
+      "type": "text",
+      "required": true
+    },
+    "color": {
+      "type": "string",
+      "default": "#ffeb3b"
+    },
+    "date": {
+      "type": "string"
+    }
+  }
+}

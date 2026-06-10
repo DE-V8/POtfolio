@@ -506,6 +506,38 @@ export interface ApiAppApp extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGuestbookGuestbook extends Struct.CollectionTypeSchema {
+  collectionName: 'guestbooks';
+  info: {
+    description: 'Guestbook signatures posted by website visitors';
+    displayName: 'Guestbook';
+    pluralName: 'guestbooks';
+    singularName: 'guestbook';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    color: Schema.Attribute.String & Schema.Attribute.DefaultTo<'#ffeb3b'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::guestbook.guestbook'
+    > &
+      Schema.Attribute.Private;
+    msg: Schema.Attribute.Text & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLinkLink extends Struct.CollectionTypeSchema {
   collectionName: 'links';
   info: {
@@ -1143,6 +1175,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::app.app': ApiAppApp;
+      'api::guestbook.guestbook': ApiGuestbookGuestbook;
       'api::link.link': ApiLinkLink;
       'api::track.track': ApiTrackTrack;
       'api::wallpaper.wallpaper': ApiWallpaperWallpaper;

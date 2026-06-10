@@ -3,6 +3,8 @@ import { playSound } from '../../../utils/sounds'
 import { useDesktopStore } from '../../../store/desktopStore'
 import styles from './GuestBook.module.css'
 
+const BASE = import.meta.env.VITE_STRAPI_URL || 'http://localhost:1337'
+
 const PRESETS = [
   { id: 1, name: 'Ash Ketchum', msg: 'Snorlax, wake up! We need to train!', date: '2026-06-01', color: '#ffeb3b' },
   { id: 2, name: 'Misty', msg: 'Love the desktop layout. Snorlax theme is so cute! 🌊', date: '2026-06-03', color: '#ff9800' },
@@ -15,35 +17,90 @@ export default function GuestBook() {
   const [name, setName] = useState('')
   const [msg, setMsg] = useState('')
   const [color, setColor] = useState('#ffeb3b') // default yellow
+  const [loading, setLoading] = useState(true)
+  const [isFallback, setIsFallback] = useState(false)
 
-  // Load from localStorage or Presets on mount
-  useEffect(() => {
-    const saved = localStorage.getItem('debuuu-guestbook')
-    if (saved) {
-      setNotes(JSON.parse(saved))
-    } else {
-      setNotes(PRESETS)
+  // Fetch from Strapi or fallback to localStorage
+  const fetchNotes = async () => {
+    try {
+      const res = await fetch(`${BASE}/api/guestbooks?sort=createdAt:desc`)
+      if (!res.ok) throw new Error('Failed to fetch from Strapi')
+      const json = await res.json()
+      
+      // Support both Strapi v4 (.attributes) and Strapi v5 (flat) shapes
+      const fetchedNotes = json.data.map(item => {
+        const attrs = item.attributes || item
+        return {
+          id: item.id,
+          name: attrs.name,
+          msg: attrs.msg,
+          color: attrs.color || '#ffeb3b',
+          date: attrs.date || new Date(attrs.createdAt).toISOString().split('T')[0]
+        }
+      })
+      
+      setNotes(fetchedNotes)
+      setIsFallback(false)
+    } catch (err) {
+      console.warn('Strapi offline or guestbooks failed to load, using localStorage:', err.message)
+      const saved = localStorage.getItem('debuuu-guestbook')
+      if (saved) {
+        setNotes(JSON.parse(saved))
+      } else {
+        setNotes(PRESETS)
+      }
+      setIsFallback(true)
+    } finally {
+      setLoading(false)
     }
+  }
+
+  useEffect(() => {
+    fetchNotes()
   }, [])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!name || !msg) {
       playSound('error')
       return
     }
 
-    const newNote = {
-      id: Date.now(),
+    const payload = {
       name,
       msg,
-      date: new Date().toISOString().split('T')[0],
-      color
+      color,
+      date: new Date().toISOString().split('T')[0]
     }
 
-    const nextNotes = [newNote, ...notes]
-    setNotes(nextNotes)
-    localStorage.setItem('debuuu-guestbook', JSON.stringify(nextNotes))
+    // Try sending to Strapi first
+    let success = false
+    try {
+      const res = await fetch(`${BASE}/api/guestbooks`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ data: payload })
+      })
+      if (res.ok) {
+        success = true
+        await fetchNotes() // reload list
+      }
+    } catch (err) {
+      console.error('Failed to post entry to Strapi, falling back to local:', err)
+    }
+
+    // Fallback if Strapi is offline or post failed
+    if (!success) {
+      const newNote = {
+        id: Date.now(),
+        ...payload
+      }
+      const nextNotes = [newNote, ...notes]
+      setNotes(nextNotes)
+      localStorage.setItem('debuuu-guestbook', JSON.stringify(nextNotes))
+    }
 
     setName('')
     setMsg('')
