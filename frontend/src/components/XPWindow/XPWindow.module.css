@@ -42,6 +42,13 @@
 
 .winIcon { font-size: 14px; line-height: 1; flex-shrink: 0; }
 
+.winIconImage {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .winTitle {
   color: #fff;
   font-size: 12px;

@@ -101,10 +101,16 @@ function TitleBar({ id, icon, title, maximized, onClose, onMin, onMax, bringToFr
     window.addEventListener('mouseup', onUp)
   }, [id, maximized, win.x, win.y])
 
+  const isImageIcon = typeof icon === 'string' && (icon.startsWith('http') || icon.startsWith('/') || icon.includes('.') || icon.startsWith('assets/'));
+
   return (
     <div className={styles.titlebar} ref={dragRef} onMouseDown={onMouseDown}>
       <div className={styles.titleLeft}>
-        <span className={styles.winIcon}>{icon}</span>
+        {isImageIcon ? (
+          <img src={icon} alt="" className={styles.winIconImage} />
+        ) : (
+          <span className={styles.winIcon}>{icon}</span>
+        )}
         <span className={styles.winTitle}>{title}</span>
       </div>
       <div className={styles.chrome}>
