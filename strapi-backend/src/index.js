@@ -55,7 +55,7 @@ module.exports = {
         const createdApps = {};
         for (const app of appsData) {
           const res = await strapi.documents('api::app.app').create({
-            data: { ...app, locale: 'en' },
+            data: app,
             status: 'published'
           });
           createdApps[app.slug] = res.documentId || res.id;
@@ -139,7 +139,7 @@ module.exports = {
 
         for (const work of worksData) {
           await strapi.documents('api::work.work').create({
-            data: { ...work, locale: 'en' },
+            data: work,
             status: 'published'
           });
         }
@@ -157,8 +157,7 @@ module.exports = {
             instagram: 'https://instagram.com/ifdebuu',
             twitter: '',
             github: 'https://github.com/DE-V8',
-            linkedin: '',
-            locale: 'en'
+            linkedin: ''
           },
           status: 'published'
         });
@@ -174,7 +173,7 @@ module.exports = {
         ];
         for (const track of tracksData) {
           await strapi.documents('api::track.track').create({
-            data: { ...track, locale: 'en' },
+            data: track,
             status: 'published'
           });
         }
