@@ -242,7 +242,7 @@ export default function App() {
     backgroundPosition: 'center',
   }
 
-  if (!booted) return <BootScreen onDone={() => setBooted(true)} />
+  if (!booted) return <BootScreen loading={loading} onDone={() => setBooted(true)} />
 
   return (
     <div

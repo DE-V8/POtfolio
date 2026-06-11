@@ -65,7 +65,9 @@ $RECYCLE.BIN/
 # Logs and databases
 ############################
 
-.tmp
+.tmp/*
+!.tmp/data.db
+!.tmp/.gitkeep
 *.log
 *.sql
 *.sqlite
@@ -80,8 +82,8 @@ $RECYCLE.BIN/
 ssl
 .idea
 nbproject
-public/uploads/*
-!public/uploads/.gitkeep
+# public/uploads/*
+# !public/uploads/.gitkeep
 .tsbuildinfo
 .eslintcache
 

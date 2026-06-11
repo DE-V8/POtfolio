@@ -13,11 +13,9 @@ const STEPS = [
   { pct: 100, msg: 'Welcome, Debuuu.' },
 ]
 
-export default function BootScreen({ onDone }) {
-  const [progress, setProgress] = useState(0)
-  const [status, setStatus] = useState('Starting up...')
-  const [visible, setVisible] = useState(true)
+export default function BootScreen({ loading, onDone }) {
   const [stepIdx, setStepIdx] = useState(0)
+  const [visible, setVisible] = useState(true)
 
   useEffect(() => {
     // Skip boot on subsequent visits in same session
@@ -26,26 +24,48 @@ export default function BootScreen({ onDone }) {
       return
     }
     playSound('startup')
+  }, [])
 
-    let i = 0
-    const interval = setInterval(() => {
-      if (i >= STEPS.length) {
-        clearInterval(interval)
-        setTimeout(() => {
-          setVisible(false)
-          setTimeout(onDone, 800)
-          sessionStorage.setItem('booted', '1')
-        }, 600)
+  useEffect(() => {
+    if (sessionStorage.getItem('booted')) return
+
+    // If we are before the waiting step (index 5, 88%)
+    if (stepIdx < STEPS.length - 2) {
+      const timer = setTimeout(() => {
+        setStepIdx(prev => prev + 1)
+      }, 420)
+      return () => clearTimeout(timer)
+    }
+
+    // If we are at the waiting step (index 5, 88%)
+    if (stepIdx === STEPS.length - 2) {
+      if (loading) {
+        // Just wait here; when loading changes to false, this hook will re-run and progress
         return
       }
-      setProgress(STEPS[i].pct)
-      setStatus(STEPS[i].msg)
-      setStepIdx(i)
-      i++
-    }, 420)
+      // Once loading is false, advance to the final step
+      const timer = setTimeout(() => {
+        setStepIdx(STEPS.length - 1)
+      }, 420)
+      return () => clearTimeout(timer)
+    }
 
-    return () => clearInterval(interval)
-  }, [])
+    // If we are at the final step (index 6, 100%)
+    if (stepIdx === STEPS.length - 1) {
+      const timer = setTimeout(() => {
+        setVisible(false)
+        setTimeout(onDone, 800)
+        sessionStorage.setItem('booted', '1')
+      }, 600)
+      return () => clearTimeout(timer)
+    }
+  }, [stepIdx, loading, onDone])
+
+  const currentStep = STEPS[stepIdx]
+  const progress = currentStep ? currentStep.pct : 0
+  const status = (stepIdx === STEPS.length - 2 && loading)
+    ? 'Connecting to backend services... Zzz...'
+    : (currentStep ? currentStep.msg : 'Starting up...')
 
   return (
     <AnimatePresence>

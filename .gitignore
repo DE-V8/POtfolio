@@ -20,15 +20,17 @@ build/
 **/.strapi/
 
 # Database files
-.tmp/
-**/.tmp/
-*.db
-*.sqlite
-*.sqlite3
+.tmp/*
+!.tmp/data.db
+**/.tmp/*
+!**/.tmp/data.db
+# *.db
+# *.sqlite
+# *.sqlite3
 
-# Uploaded media files (so we don't commit them, we want them stored dynamically or populated separately)
-**/public/uploads/*
-!**/public/uploads/.gitkeep
+# Uploaded media files
+# **/public/uploads/*
+# !**/public/uploads/.gitkeep
 
 # IDEs
 .idea/
